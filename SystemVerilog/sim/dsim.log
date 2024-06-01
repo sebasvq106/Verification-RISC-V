@@ -1,0 +1,124 @@
+=N:[UsageMeter (2024-05-31 23:38:32 -0600)] Using /etc/ssl/certs as location of CA certificates to verify license server.
+=N:[UsageMeter (2024-05-31 23:38:33 -0600)] usage server initial connection
+=N:[License] 
+Licensed for Metrics Design Automation.
+=N:[License] New lease granted.
+Analyzing...
+Elaborating...
+  Top-level modules:
+    $unit
+    tb_top
+=W:[DuplicateCaseItem]:
+    The following case items appear more than once in             
+    a case statement.  Since the first action takes precedence    
+    any duplicates are effectively ignored.                       
+
+    ./../design/imm_Gen.sv:52:9                   ./../design/imm_Gen.sv:50:9                   
+    Included from ./../design/Datapath.sv:8:10    Included from ./../design/Datapath.sv:8:10    
+    Included from ./../design/RISC_V.sv:3:10                                                    
+    Included from ../design/design.sv:1:10                                                      
+
+=W:[PortWidthMismatch]:
+    The packed-array signals of the following differ in width:    
+
+                                                module:port     formal    actual    
+
+    ./../design/Datapath.sv:119:50              datamemory:a    32        9         
+    Included from ./../design/RISC_V.sv:3:10                                        
+
+  Found 21 unique specialization(s) of 20 design element(s).
+=W:[LatchInferred]:
+    The following variables in always_comb blocks are not written    
+    along all paths through the block.  Latches will be inferred:    
+
+    ./../design/data_extract.sv:33:1               y     
+    Included from ./../design/Datapath.sv:6:10           
+
+    ./../design/datamemory.sv:17:5                 rd    
+    Included from ./../design/Datapath.sv:10:10          
+
+Optimizing...
+Building models...
+PLI/VPI access: +b 
+Simulation time precision is 1ps.
+  [1/8] module $root: 206 functions, 456 basic blocks
+  [2/8] module $pkgs: 1 functions, 2 basic blocks
+  [3/8] CU scope $unit: 34 functions, 568 basic blocks
+  [4/8] module tb_top: 6 functions, 20 basic blocks
+  [5/8] package std: 24 functions, 66 basic blocks
+  [6/8] interface intf_cnt: 1 functions, 2 basic blocks
+  [7/8] module riscv#(32): 44 functions, 584 basic blocks
+  [8/8] program testcase: 3 functions, 16 basic blocks
+Linking image.so...
+Using default typical min/typ/max.
+=S:Begin run-time elaboration and static initialization...
+Creating environment
+=N:[dumpMXD] preparing MXD dump to 'waves.mxd'.
+=N:[dump] Dump started at time 0
+=N:Starting event scheduler...
+Initializing Test #1
+Executing Register
+
+Executing Instruction
+
+ * PASS * DUT data is           0 :: SB data is           0 
+Simulation starts!
+=W:[dump] ./../testbench/tb_top.sv:20: $dumpfile() called, but dump already enabled.
+    included from ../testbench/testbench.sv:8
+=W:[dump] ./../testbench/tb_top.sv:21: $dumpvars() called after dumping started.
+    included from ../testbench/testbench.sv:8
+ * PASS * DUT data is         732 :: SB data is         732 
+ * PASS * DUT data is         178 :: SB data is         178 
+ * PASS * DUT data is           8 :: SB data is           8 
+ * PASS * DUT data is       -2017 :: SB data is       -2017 
+ * PASS * DUT data is          19 :: SB data is          19 
+ * PASS * DUT data is         295 :: SB data is         295 
+ * PASS * DUT data is         641 :: SB data is         641 
+ * PASS * DUT data is           1 :: SB data is           1 
+ * PASS * DUT data is           0 :: SB data is           0 
+ * PASS * DUT data is           0 :: SB data is           0 
+ * PASS * DUT data is           0 :: SB data is           0 
+ * PASS * DUT data is           0 :: SB data is           0 
+ * PASS * DUT data is         188 :: SB data is         188 
+ * PASS * DUT data is           0 :: SB data is           0 
+ * PASS * DUT data is           0 :: SB data is           0 
+ * PASS * DUT data is           0 :: SB data is           0 
+ * PASS * DUT data is           0 :: SB data is           0 
+ * PASS * DUT data is           0 :: SB data is           0 
+ * PASS * DUT data is           0 :: SB data is           0 
+ * PASS * DUT data is           0 :: SB data is           0 
+ * PASS * DUT data is          19 :: SB data is          19 
+ * PASS * DUT data is           0 :: SB data is           0 
+ * PASS * DUT data is           0 :: SB data is           0 
+ * PASS * DUT data is           0 :: SB data is           0 
+ * PASS * DUT data is           0 :: SB data is           0 
+ * PASS * DUT data is           0 :: SB data is           0 
+ * PASS * DUT data is        1504 :: SB data is        1504 
+ * PASS * DUT data is        1504 :: SB data is        1504 
+ * PASS * DUT data is        -334 :: SB data is        -334 
+ * PASS * DUT data is           0 :: SB data is           0 
+ * PASS * DUT data is           0 :: SB data is           0 
+ * PASS * DUT data is           0 :: SB data is           0 
+ * PASS * DUT data is        1504 :: SB data is        1504 
+ * PASS * DUT data is           0 :: SB data is           0 
+ * PASS * DUT data is           0 :: SB data is           0 
+ * PASS * DUT data is         101 :: SB data is         101 
+ * PASS * DUT data is           0 :: SB data is           0 
+ * PASS * DUT data is         101 :: SB data is         101 
+ * PASS * DUT data is        -334 :: SB data is        -334 
+ * PASS * DUT data is        1276 :: SB data is        1276 
+ * PASS * DUT data is       -1093 :: SB data is       -1093 
+ * PASS * DUT data is           1 :: SB data is           1 
+ * PASS * DUT data is           1 :: SB data is           1 
+ * PASS * DUT data is           0 :: SB data is           0 
+ * PASS * DUT data is           1 :: SB data is           1 
+ * PASS * DUT data is           0 :: SB data is           0 
+ * PASS * DUT data is           0 :: SB data is           0 
+ * PASS * DUT data is        -334 :: SB data is        -334 
+ * PASS * DUT data is           0 :: SB data is           0 
+=N:[dumpMXD] closing MXD dump
+=T:Simulation terminated by $finish at time 1010000 (./../testbench/test_1.sv:11);
+Run directory: /home/sebasvq/Escritorio/Verificacion/SystemVerilog/sim
+  System timescale is 1ps / 1ps
+  Metrics DSim version: 20240422.0.0 (b:R #c:0 h:d894f4c124 os:ubuntu_20.04)
+  Random seed: (defaulted to 1)
