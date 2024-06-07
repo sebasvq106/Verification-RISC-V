@@ -15,3 +15,10 @@
 
 ../testbench/testbench.sv
 
+-uvm 1.2
++UVM_TESTNAME=test_basic
+#+incdir+$UVM_HOME/src
+#+incdir+/home/sebasvq/Descargas/1800.2-2020.3.0/src
+#-y /home/sebasvq/Descargas/1800.2-2020.3.0/src
+#/home/sebasvq/Descargas/1800.2-2020.3.0/src/uvm.sv
+
