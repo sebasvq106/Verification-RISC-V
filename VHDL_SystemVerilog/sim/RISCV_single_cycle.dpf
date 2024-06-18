@@ -1,0 +1,28 @@
+---
+# Note: The contents of this file are automatically generated.
+# Any changes made by hand may be overwritten.
+version: '0.2'
+work_dir: .
+design_root_dir: ..\..
+simulations:
+  - name: sim1
+    options: >-
+      -top testbench.top_hvl  -top dut.top_hdl ../testbench/interface.sv 
+      ../design/Controller.sv ../design/ALUController.sv ../design/Datapath.sv
+      ../design/RISC_V.sv ../design/adder.sv ../design/adder_32.sv
+      ../design/mux2.sv ../design/flopr.sv ../design/instructionmemory.sv
+      ../design/data_extract.sv ../design/RegFile.sv ../design/imm_Gen.sv
+      ../design/alu.sv ../design/datamemory.sv -uvm 1.2 +UVM_TESTNAME=test_basic
+      +acc -waves file.vcd 
+source_files:
+  - language: verilog
+    path: filelist_VHDL.txt
+    library_name: dut
+    options: '-uvm 1.2'
+    file_list: relative-to-file
+  - language: verilog
+    path: filelist_sv.txt
+    library_name: testbench
+    file_list: relative-to-file
+library_search_paths:
+  - $STD_LIBS/ieee93

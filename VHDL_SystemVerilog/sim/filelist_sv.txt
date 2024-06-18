@@ -1,0 +1,15 @@
++incdir+../testbench
++incdir+/home/jman/metrics-ca/dsim/20240422.4.0/uvm/1.2/src/
+/home/jman/metrics-ca/dsim/20240422.4.0/uvm/1.2/src/uvm_pkg.sv
+../testbench/testbench.sv
+../testbench/top_hvl.sv
+../testbench/agent.sv
+../testbench/driver.sv
+../testbench/env.sv
+../testbench/interface.sv
+../testbench/monitor.sv
+../testbench/riscv_item.sv
+../testbench/scoreboard.sv
+../testbench/sequence.sv
+../testbench/test_1.sv
+

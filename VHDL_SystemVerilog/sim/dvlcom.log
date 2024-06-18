@@ -1,0 +1,13 @@
+=W:[DupModuleDefnLib]:
+    The following items have previous definitions with the same name.    
+    The most recent definition will be used.                             
+    This policy applies because -libmap or configuration was used,       
+    or dvlcom was run.                                                   
+
+    ../testbench/top_hvl.sv:5:1      top_hvl     ../testbench/top_hvl.sv:5:1                     
+                                                 Included from ../testbench/testbench.sv:1:10    
+
+    ../testbench/interface.sv:1:1    intf_cnt    ../testbench/interface.sv:1:1                   
+                                                 Included from ../testbench/testbench.sv:2:10    
+
+=N:[LibUpdate] Updated library testbench.
