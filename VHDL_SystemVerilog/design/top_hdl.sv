@@ -1,5 +1,5 @@
-`include "/home/jman/Documents/IE0621/Proyecto/EDA_RISC/SSP/VHDL_SystemVerilog/testbench/interface.sv"
-`include "/home/jman/Documents/IE0621/Proyecto/EDA_RISC/SSP/VHDL_SystemVerilog/design/RISC_V.sv"
+`include "/home/sebasvq/Escritorio/Verificacion/Verification-RISC-V/VHDL_SystemVerilog/testbench/tesbench.sv"
+`include "/home/sebasvq/Escritorio/Verificacion/Verification-RISC-V/VHDL_SystemVerilog/design/RISC_V.sv"
 
 import uvm_pkg::*;
 

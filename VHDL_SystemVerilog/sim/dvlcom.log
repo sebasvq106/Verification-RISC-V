@@ -1,13 +1,34 @@
+=N:[UVMSource] Using sources from '/home/sebasvq/metrics-ca/dsim/20240422.0.0/uvm/1.2'
+=E:[IncNotFound]:
+    The following include files were not found in the include search path:    
+
+    ./../design/top_hdl.sv:1:1                /home/sebasvq/Escritorio/Verificacion/Verification-RISC-V/VHDL_SystemVerilog/testbench/tesbench.sv    
+    Included from ../design/design.sv:3:10                                                                                                          
+
+    ../design/top_hdl.sv:1:1                  /home/sebasvq/Escritorio/Verificacion/Verification-RISC-V/VHDL_SystemVerilog/testbench/tesbench.sv    
+
+    Simulator invoked from directory: /home/sebasvq/Escritorio/Verificacion/Verification-RISC-V/VHDL_SystemVerilog/sim    
+    Include search path:                                                                                                  
+
+        ./../design                                               
+        /home/sebasvq/metrics-ca/dsim/20240422.0.0/uvm/1.2/src    
+                                                                  
+
 =W:[DupModuleDefnLib]:
     The following items have previous definitions with the same name.    
     The most recent definition will be used.                             
     This policy applies because -libmap or configuration was used,       
     or dvlcom was run.                                                   
 
-    ../testbench/top_hvl.sv:5:1      top_hvl     ../testbench/top_hvl.sv:5:1                     
-                                                 Included from ../testbench/testbench.sv:1:10    
+    /home/sebasvq/Escritorio/Verificacion/Verification-RISC-V/VHDL_SystemVerilog/design/RISC_V.sv:3:1    riscv      ./../design/RISC_V.sv:3:1                                                                            
+    Included from ./../design/top_hdl.sv:2:10                                                                       Included from ../design/design.sv:2:10                                                               
 
-    ../testbench/interface.sv:1:1    intf_cnt    ../testbench/interface.sv:1:1                   
-                                                 Included from ../testbench/testbench.sv:2:10    
+    /home/sebasvq/Escritorio/Verificacion/Verification-RISC-V/VHDL_SystemVerilog/design/RISC_V.sv:3:1    riscv      /home/sebasvq/Escritorio/Verificacion/Verification-RISC-V/VHDL_SystemVerilog/design/RISC_V.sv:3:1    
+    Included from ../design/top_hdl.sv:2:10                                                                         Included from ./../design/top_hdl.sv:2:10                                                            
 
-=N:[LibUpdate] Updated library testbench.
+    ../design/top_hdl.sv:6:1                                                                             top_hdl    ./../design/top_hdl.sv:6:1                                                                           
+                                                                                                                    Included from ../design/design.sv:3:10                                                               
+
+    ../design/RISC_V.sv:3:1                                                                              riscv      /home/sebasvq/Escritorio/Verificacion/Verification-RISC-V/VHDL_SystemVerilog/design/RISC_V.sv:3:1    
+                                                                                                                    Included from ../design/top_hdl.sv:2:10                                                              
+
