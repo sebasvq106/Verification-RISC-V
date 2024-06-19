@@ -12,8 +12,8 @@ simulations:
       ../design/RISC_V.sv ../design/adder.sv ../design/adder_32.sv
       ../design/mux2.sv ../design/flopr.sv ../design/instructionmemory.sv
       ../design/data_extract.sv ../design/RegFile.sv ../design/imm_Gen.sv
-      ../design/alu.sv ../design/datamemory.sv -uvm 1.2 +UVM_TESTNAME=test_basic
-      +acc -waves file.vcd 
+      ../design/alu.sv ../design/datamemory.sv +ntb_random_seed=3786 -uvm 1.2
+      +UVM_TESTNAME=test_basic +acc -waves file.vcd
 source_files:
   - language: verilog
     path: filelist_VHDL.txt

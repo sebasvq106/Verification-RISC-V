@@ -1,1 +1,6 @@
   CREATE_STREAM @35000 {NAME:seq T:Transactions SCOPE:uvm_test_top.env.riscv_ag_active.riscv_seqr STREAM:695}
+  CREATE_STREAM @35000 {NAME:seq T:Transactions SCOPE:uvm_test_top.env.riscv_ag_active.riscv_seqr STREAM:755}
+  CREATE_STREAM @35000 {NAME:seq T:Transactions SCOPE:uvm_test_top.env.riscv_ag_active.riscv_seqr STREAM:755}
+  CREATE_STREAM @35000 {NAME:seq T:Transactions SCOPE:uvm_test_top.env.riscv_ag_active.riscv_seqr STREAM:755}
+  CREATE_STREAM @35000 {NAME:seq T:Transactions SCOPE:uvm_test_top.env.riscv_ag_active.riscv_seqr STREAM:755}
+  CREATE_STREAM @35000 {NAME:seq T:Transactions SCOPE:uvm_test_top.env.riscv_ag_active.riscv_seqr STREAM:755}
