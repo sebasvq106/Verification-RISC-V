@@ -1,32 +1,25 @@
 // Driver
 `ifndef DRIVER_SV
 `define DRIVER_SV
-/*         Driver         */
-
+// Driver del RiscV
 
 class riscv_driver extends uvm_driver #(riscv_item);
+  
 // Agrega a la Fabrica
 `uvm_component_utils (riscv_driver)
 
-
 // Constructor
  function new (string name = "fifo_driver", uvm_component parent = null);
-     // Llama al constructor padre
      super.new (name, parent);
  endfunction
 
-  // declarala las variables que va tener
-
-// interface
   virtual intf_cnt intf;
-
 
 // Fase de construcion
   virtual function void build_phase (uvm_phase phase);
     
      super.build_phase (phase);
     
-     // verifica si tiene base de datos
      if(uvm_config_db #(virtual intf_cnt)::get(this, "", "VIRTUAL_INTERFACE", intf) == 0) begin
      `uvm_fatal("INTERFACE_CONNECT", "Could not get from the database the virtual interface for the TB")
      end
@@ -39,69 +32,71 @@ class riscv_driver extends uvm_driver #(riscv_item);
  endfunction
 
 
- // fase de run
+ // Fase de run
  virtual task run_phase(uvm_phase phase);
-    // Llama a la fase run del padre
+   
     super.run_phase(phase);
     forever begin
-       // declara una variable del tipo riscv_item
-       riscv_item f_item;
-       // mensaje que esta esperando un item del tipo riscv_item
+       riscv_item f_item;  // Declara una variable del tipo riscv_item
        `uvm_info("DRV", $sformatf("Wait for item from sequencer"), UVM_LOW)
-       // obtiene el item tipo riscv_item del secuenciador
        seq_item_port.get_next_item(f_item);
        fork
-           // si index es menor a 7, manda intrucciones del tipo ADDI
          if (f_item.index < 32) begin
-           $display("Mandando Registros/n");
               register(f_item);
           end else begin
-            $display("Mandando Instructiones/n");
               instruction(f_item);
           end
       join
-         // Terminado
          seq_item_port.item_done();
       end
  endtask
 
 
-// Task para darle reset al risc v
+// Task Reset
 virtual task reset();
-  
   @(intf.tb_clk);
   intf.reset = 1;
-  #25 intf.reset = 0;
+  #35 intf.reset = 0;
   top_hdl.riscV.dp.instr_mem.Inst_mem[0] = 32'h00000000;
 endtask
 
-
-
-
-// Task para mandar los ADDI
+// Task Register
 virtual task register(riscv_item f_item);
     begin
+   
+      // La primera instruccion carga un cero
       if(f_item.index == 1) begin
         top_hdl.riscV.dp.instr_mem.Inst_mem[f_item.index] = 32'h00007033;
       end
       else begin
-       top_hdl.riscV.dp.instr_mem.Inst_mem[f_item.index] = f_item.rand_register;
-        $display("Numero de instruccion %d %h \n", f_item.index, f_item.rand_register);
-       intf.instruction_queue = f_item.rand_register;
+        
+      // Se calcula el offset
+      int offset = f_item.index - 1;
+      logic [4:0] offset_bits = offset[4:0];
+      
+      // Se envian los registros
+      top_hdl.riscV.dp.instr_mem.Inst_mem[f_item.index] = {f_item.inm12, f_item.rs1, f_item.funct3_rg, offset_bits , f_item.opcode_rg};
+      intf.instruction_queue = {f_item.inm12, f_item.rs1, f_item.funct3_rg, offset_bits, f_item.opcode_rg};
+           
       end
-     @(posedge intf.tb_clk);
+      @(posedge intf.tb_clk);
+      
     end
 endtask
   
-  // Generador de instrucciones    
+
+  // Task Instruction    
 virtual task instruction(riscv_item f_item);
     begin
+    
+    // Se envian las instrucciones
     top_hdl.riscV.dp.instr_mem.Inst_mem[f_item.index] = f_item.rand_instruction;
-      $display("Numero de instruccion %d %h \n", f_item.index, f_item.rand_instruction);
     intf.instruction_queue = f_item.rand_instruction;  
-    @(posedge intf.tb_clk);
+    @ (posedge intf.tb_clk);
+    
     end
-endtask           
+endtask
+            
 
 endclass
 `endif // 

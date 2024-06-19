@@ -52,7 +52,8 @@ class riscv_scoreboard extends uvm_scoreboard;
   virtual function void write_mon (riscv_item item);
     			
       instruction = instruction_ref.pop_back();
-    $display("Instruction SB %h :: Instruction DUT %h \n", instruction, top_hdl.riscV.dp.instr_mem.rd);
+    
+    `uvm_info ("drv", $sformatf("Instruction recibida en el scoreboard por parte del drv= %h", instruction), UVM_MEDIUM)
     
       		opcode = instruction[6:0];
     

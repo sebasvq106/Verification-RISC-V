@@ -1,14 +1,11 @@
 `ifndef RISCV_ITEM_SV
 `define RISCV_ITEM_SV
 class riscv_item extends uvm_sequence_item;
-
-//Add a sequence item definition
-
+  
 // Variables a randomizar
 rand int iteracion;
 rand logic[6:0] opcode;
 rand logic [4:0] rd;
-rand logic [4:0] rd_unique;
 rand logic [4:0] rs1;
 rand logic [4:0] rs2;
 rand logic [2:0] funct3;
@@ -21,7 +18,7 @@ rand logic [19:0] inm_20;
 rand logic [19:0] inm_20_4;
 rand logic [2:0] funct3_lw;
 
-int num = 50;
+int num = 64;
 int index = 0;
 logic [6:0] opcode_rg = 7'b0010011; 		// Opoce I-type
 logic [2:0] funct3_rg = 3'b000;			// funct3 del ADDI
@@ -126,20 +123,10 @@ constraint funt7_ins {
   
 // Posibles registros
 constraint regs_ins {
-          rd <= 31; rd  >= 1;
+          rd  <= 31; rd  >= 1;
           rs1 <= 31; rs1 >= 0;
           rs2 <= 31; rs2 >= 0;
    }
-          
-  // rd unico
-          
-  constraint rd_un {
-      // Restricciones de rango
-      rd_unique  inside {[1:31]};
-
-      // Restricción para asegurarse de que los valores no se repitan
-    unique {rd_unique};
-  }
           
 // Inm de 12 bits
 constraint inm_ins {
@@ -237,7 +224,7 @@ constraint inm_ins_20_4 {
 
   // Registros
 constraint regs {
-    rand_register == {inm12, rs1, funct3_rg, rd_unique, opcode_rg};
+       rand_register == {inm12, rs1, funct3_rg, rd, opcode_rg};
      }
          
 
