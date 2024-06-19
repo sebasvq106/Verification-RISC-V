@@ -18,7 +18,7 @@ rand logic [19:0] inm_20;
 rand logic [19:0] inm_20_4;
 rand logic [2:0] funct3_lw;
 
-int num = 64;
+int num = 50;
 int index = 0;
 logic [6:0] opcode_rg = 7'b0010011; 		// Opoce I-type
 logic [2:0] funct3_rg = 3'b000;			// funct3 del ADDI

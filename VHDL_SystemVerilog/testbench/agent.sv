@@ -1,6 +1,6 @@
 // Agente Activo
-`ifndef AGENT_ACTIV_SV
-`define AGENT_ACTIV_SV
+`ifndef AGENT_SV
+`define AGENT_SV
 /*               Agente Activo              */
 
 
@@ -61,7 +61,6 @@ virtual function void connect_phase(uvm_phase phase);
 endfunction
 
 endclass 
-`endif // 
 
 // Agente Pasivo  
 class riscv_agent_passive extends uvm_agent;
