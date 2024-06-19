@@ -7,13 +7,12 @@ design_root_dir: ..\..
 simulations:
   - name: sim1
     options: >-
-      +ntb_random_seed=3786 -top testbench.top_hvl  -top dut.top_hdl
-      ../testbench/interface.sv  ../design/Controller.sv
-      ../design/ALUController.sv ../design/Datapath.sv ../design/RISC_V.sv
-      ../design/adder.sv ../design/adder_32.sv ../design/mux2.sv
-      ../design/flopr.sv ../design/instructionmemory.sv
+      -top testbench.top_hvl  -top dut.top_hdl ../testbench/interface.sv 
+      ../design/Controller.sv ../design/ALUController.sv ../design/Datapath.sv
+      ../design/RISC_V.sv ../design/adder.sv ../design/adder_32.sv
+      ../design/mux2.sv ../design/flopr.sv ../design/instructionmemory.sv
       ../design/data_extract.sv ../design/RegFile.sv ../design/imm_Gen.sv
-      ../design/alu.sv ../design/datamemory.sv  -uvm 1.2
+      ../design/alu.sv ../design/datamemory.sv -sv_seed 3333 -uvm 1.2
       +UVM_TESTNAME=test_basic +acc -waves file.vcd
 source_files:
   - language: verilog
