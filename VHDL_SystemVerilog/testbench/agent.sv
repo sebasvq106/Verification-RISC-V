@@ -1,9 +1,6 @@
 // Agente Activo
 `ifndef AGENT_SV
 `define AGENT_SV
-/*               Agente Activo              */
-
-
 // Angente activo
 class riscv_agent_active extends uvm_agent;
   
@@ -62,7 +59,11 @@ endfunction
 
 endclass 
 
-// Agente Pasivo  
+
+
+
+
+/*               Agente Pasivo              */ 
 class riscv_agent_passive extends uvm_agent;
 // Lo agrega a la fabrica
 `uvm_component_utils(riscv_agent_passive)

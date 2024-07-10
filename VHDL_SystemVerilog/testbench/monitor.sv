@@ -1,19 +1,20 @@
 `ifndef MONITOR_SV
 `define MONITOR_SV
-
 // Monitor del RiscV
 
 class riscv_monitor extends uvm_monitor;
-  
 // Se agrega a la fabrica
 `uvm_component_utils (riscv_monitor)
 
-// Interface
-virtual intf_cnt intf;
+// variables
 
+// interface
+virtual intf_cnt intf;
 // Analisis de UVM, analisa los tipos riscv_item que se envian
 uvm_analysis_port #(riscv_item)   mon_analysis_port;
  
+
+
 // Constructor
 function new (string name, uvm_component parent= null);
     super.new (name, parent);
@@ -32,15 +33,23 @@ virtual function void build_phase (uvm_phase phase);
     end
 endfunction
 
+
   //  Fase de Run
   virtual task run_phase (uvm_phase phase);
     super.run_phase(phase);
  endtask
 
+  // funcion check_protocol
+  virtual function void check_protocol ();
+    // Function to check basic protocol specs
+ endfunction
 endclass
 
-// Monitor Write 
 
+
+
+
+/*             Monitor Wr del tipo Monitor base          */
 class riscv_monitor_wr extends riscv_monitor;
 // se agrega a la fabrica
 `uvm_component_utils (riscv_monitor_wr)
@@ -60,11 +69,13 @@ class riscv_monitor_wr extends riscv_monitor;
  virtual task run_phase (uvm_phase phase);
    // crea un riscv_item (data_obj)
     riscv_item  data_obj = riscv_item::type_id::create ("data_obj", this);
+     
     forever begin
           // cada vez que intf.instruction_queue cambie
-         @(intf.instruction_queue);  
+      @(posedge intf.tb_clk);  
           // guarda la intruccion y la almacena en instruction_send
          data_obj.instruction_send = intf.instruction_queue;
+      
       
           // escribe en el puerto mon_analysis_port el data_obj
           // este puerto se conecta al scoreboard
@@ -76,10 +87,12 @@ class riscv_monitor_wr extends riscv_monitor;
 endclass
 
 
-// Monitor Read
-class riscv_monitor_rd extends riscv_monitor;
 
-// Se agrega a la fabrica
+
+
+/*             Monitor Wr del tipo Monitor base          */
+class riscv_monitor_rd extends riscv_monitor;
+// se agrega a la fabrica
 `uvm_component_utils (riscv_monitor_rd)
 
  // constructor
@@ -99,13 +112,17 @@ class riscv_monitor_rd extends riscv_monitor;
     forever begin
       // En cada flanco negativo se le manda un copia de los reg del dut
       // al scoreboard
-      @(top_hdl.riscV.dp.rf.register_file);  
+      
+      // or negedge intf.tb_clk posedge posedge 
+      @(intf.cambio)
+      //if (intf.tb_clk==1) begin
       data_obj.reg_file_send = intf.reg_file_monitor;
       //`uvm_info ("Ojo", $sformatf("registro a ver = %d", intf.reg_file_monitor[1]), UVM_MEDIUM)
        // Escribe en el puerto el data_obj, que va tener una 
        // copia de los reg del dut
        mon_analysis_port.write (data_obj);
       end
+    //end
  endtask
 
 endclass

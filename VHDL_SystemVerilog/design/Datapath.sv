@@ -104,6 +104,6 @@ logic zero, Con_BLT, Con_BGT, Jalr, Branch;
 ////// Data memory
     data_extract load_data_ex(Instr, ReadData, LD);
 
-    datamemory data_mem (clk, MemRead, MemWrite, ALUResult[8:0], Store_data, ReadData);   
+  datamemory data_mem (clk, reset, MemRead, MemWrite, ALUResult[11:0], Store_data, ReadData);   
 
 endmodule

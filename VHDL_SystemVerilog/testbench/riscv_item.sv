@@ -1,7 +1,9 @@
 `ifndef RISCV_ITEM_SV
 `define RISCV_ITEM_SV
 class riscv_item extends uvm_sequence_item;
-  
+
+//Add a sequence item definition
+
 // Variables a randomizar
 rand int iteracion;
 rand logic[6:0] opcode;
@@ -18,7 +20,9 @@ rand logic [19:0] inm_20;
 rand logic [19:0] inm_20_4;
 rand logic [2:0] funct3_lw;
 
-int num = 50;
+
+
+int num = 100;
 int index = 0;
 logic [6:0] opcode_rg = 7'b0010011; 		// Opoce I-type
 logic [2:0] funct3_rg = 3'b000;			// funct3 del ADDI
@@ -60,13 +64,13 @@ endfunction
 
 // Opcode's del RiscV
 constraint opcode_ins {
-      opcode dist {7'b0110011 :=100, 		// R_type
+    opcode dist {7'b0110011 	:=100, 		// R_type
                    7'b0010011 :=100,		// I_type (ADDI, XORI, ...)
-                   7'b0000011 :=0,		// Load (lw, lb, lh, ...)
-                   7'b0100011 :=0,		// Store (sw, sb, sh)
+                   7'b0000011 :=100,		// Load (lw, lb, lh, ...)
+                   7'b0100011 :=100,		// Store (sw, sb, sh)
                    7'b1100011 :=0,		// Branch
                    7'b1101111 :=0,        // JAL
-                   7'b0110111 :=0,		// LUI
+                   7'b0110111 :=100,		// LUI
                    7'b0010111 :=0       	// AUIPC
                    };
     }
@@ -77,11 +81,11 @@ constraint funct3_ins{
         funct3 >= 0;
     }
     
-  // Funct3 para S-type
+  // Funct3 para S-type	
 constraint funct3_ins_s{
-        funct3_s dist {3'b000, 			// sb
-                       3'b001, 			// sh 
-                       3'b010 			// sw
+    funct3_s dist {3'b000 :=100, 			// sb
+                       3'b001 :=100, 			// sh 
+                       3'b010 :=100 			// sw
                       };
     }	
 
@@ -98,11 +102,11 @@ constraint funt3_ins_b{
 
   // Funct3 para Load_type
 constraint funt3_ins_lw{
-        funct3_lw dist {3'b000, 			// lb 
-                        3'b001, 			// lh 
-                        3'b010, 			// lw 
-                        3'b100, 			// lbu 
-                        3'b101 			// lhu
+    funct3_lw dist {3'b000 := 100, 		// lb 
+                        3'b001 :=100, 			// lh 
+                        3'b010 :=100, 			// lw 
+                        3'b100 :=100, 			// lbu 
+                        3'b101 :=100			// lhu
                        };
     }
 
