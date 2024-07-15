@@ -23,3 +23,4 @@
   CREATE_STREAM @45000 {NAME:seq T:Transactions SCOPE:uvm_test_top.env.riscv_ag_active.riscv_seqr STREAM:713}
   CREATE_STREAM @45000 {NAME:seq T:Transactions SCOPE:uvm_test_top.env.riscv_ag_active.riscv_seqr STREAM:713}
   CREATE_STREAM @45000 {NAME:seq T:Transactions SCOPE:uvm_test_top.env.riscv_ag_active.riscv_seqr STREAM:713}
+  CREATE_STREAM @45000 {NAME:seq T:Transactions SCOPE:uvm_test_top.env.riscv_ag_active.riscv_seqr STREAM:711}
