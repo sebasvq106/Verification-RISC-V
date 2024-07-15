@@ -39,7 +39,7 @@ module Datapath #(
     input logic Con_Jalr,
     input logic Jal,
     input logic AUIPC, LUI, 
-    input logic [ ALU_CC_W -1:0] ALU_CC, // ALU Control Code ( input of the ALU )
+    input logic [ 4 -1:0] ALU_CC, // ALU Control Code ( input of the ALU )
     output logic [6:0] opcode,
     output logic [6:0] Funct7,
     output logic [2:0] Funct3,
@@ -64,7 +64,7 @@ logic zero, Con_BLT, Con_BGT, Jalr, Branch;
     assign Branch = (Con_beq&&zero)||(Con_bnq&&!zero)||(Con_bgt&&Con_BGT)||(Con_blt&&Con_BLT)||Jal;
     assign Jalr = Con_Jalr;
 
-    adder #(9) pcadd1 (PC, 9'b100, PCPlus4);
+  	adder #(9) pcadd1 (PC, 9'b100, PCPlus4); 
     adder_32 #(32) pcadd2 (PC_unsign_extend, ExtImm, PCPlusImm);
     adder_32 #(32) pcadd3 (ExtImm, Reg1, PCJalr);
     mux2 next_pc1(PCPlus4,PCPlusImm[8:0], Branch, BranchPC);

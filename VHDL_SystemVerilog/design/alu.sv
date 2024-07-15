@@ -24,11 +24,11 @@ module alu#(
         parameter DATA_WIDTH = 32,
         parameter OPCODE_LENGTH = 4
         )(
-        input logic [DATA_WIDTH-1:0]    SrcA,
-        input logic [DATA_WIDTH-1:0]    SrcB,
+        input logic [32-1:0]    SrcA,
+        input logic [32-1:0]    SrcB,
 
-        input logic [OPCODE_LENGTH-1:0]    Operation,
-        output logic[DATA_WIDTH-1:0] ALUResult,
+        input logic [4-1:0]    Operation,
+        output logic[32-1:0] ALUResult,
         output logic Con_BLT, 
         output logic Con_BGT,
         output logic zero

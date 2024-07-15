@@ -21,7 +21,7 @@ riscv_agent_active riscv_ag_active;
 riscv_agent_passive riscv_ag_passive;
 // scoreboard
 riscv_scoreboard riscv_sb;
-
+funct_coverage cov;
 // Fase de creacion
 virtual function void build_phase(uvm_phase phase);
   super.build_phase(phase);
@@ -35,6 +35,9 @@ virtual function void build_phase(uvm_phase phase);
   riscv_ag_passive = riscv_agent_passive::type_id::create ("riscv_ag_passive", this);
   // Crea scoreboard
   riscv_sb = riscv_scoreboard::type_id::create ("riscv_sb", this); 
+  
+  
+  cov = funct_coverage::type_id::create ("cov", this);
    
   uvm_report_info(get_full_name(),"End_of_build_phase", UVM_LOW);
   print();

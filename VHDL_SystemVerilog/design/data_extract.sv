@@ -22,9 +22,9 @@
 
 module data_extract
     #(parameter WIDTH = 32)
-    (input logic [WIDTH-1:0] inst,
-    input logic [WIDTH-1:0] data,
-     output logic [WIDTH-1:0] y);
+    (input logic [32-1:0] inst,
+    input logic [32-1:0] data,
+     output logic [32-1:0] y);
     logic [31:0] Imm_out; 
     logic [15:0] s_bit;
     logic [7:0] e_bit;

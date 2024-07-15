@@ -21,6 +21,4 @@ virtual task body();
 endtask
 endclass
 
-    
-    
 `endif // 

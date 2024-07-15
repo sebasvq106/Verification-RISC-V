@@ -22,9 +22,9 @@
 
 module mux3
     #(parameter WIDTH = 9)
-    (input logic [WIDTH-1:0] d0, d1, d2,
+    (input logic [9-1:0] d0, d1, d2,
      input logic s[1:0],
-     output logic [WIDTH-1:0] y);
+     output logic [9-1:0] y);
 
 initial
 begin

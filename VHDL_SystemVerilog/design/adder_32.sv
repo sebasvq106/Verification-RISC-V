@@ -2,8 +2,8 @@
 
 module adder_32
     #(parameter WIDTH = 32)
-    (input logic [WIDTH-1:0] a, b,
-     output logic [WIDTH-1:0] y);
+    (input logic [32-1:0] a, b,
+     output logic [32-1:0] y);
 
 
 assign y = a + b;
