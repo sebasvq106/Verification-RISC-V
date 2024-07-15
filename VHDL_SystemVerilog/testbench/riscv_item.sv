@@ -21,8 +21,8 @@ rand logic [19:0] inm_20_4;
 rand logic [2:0] funct3_lw;
 
 
-
-int num = 100;
+logic reset;
+int num = 101;
 int index = 0;
 logic [6:0] opcode_rg = 7'b0010011; 		// Opoce I-type
 logic [2:0] funct3_rg = 3'b000;			// funct3 del ADDI
@@ -171,7 +171,63 @@ constraint inm_ins_20_4 {
         inm_20_4 >= 0;
        inm_20_4 % 4 == 0;
    }
+   
+constraint special_instruction {
+     //addi r5, r0, 10
+     if (index == 94) {
+		opcode == 7'b0010011;
+		funct3 ==3'b000;
+		rd 	== 5'b00101;
+		rs1	==5'b00000;
+		inm12  ==12'b000000001010;
 
+		}
+    	
+     // addi r30, r0, 314
+     else if (index == 95) {
+		opcode == 7'b0010011;
+		funct3 ==3'b000;
+		rd 	== 5'b11110;
+		rs1	==5'b00000;
+		inm12  ==12'b000100111010;
+		}
+       
+       // sw r30,34(r0)
+      else if (index == 96) {
+		opcode == 7'b0100011;
+		funct3_s ==3'b010;
+		rs2 	== 5'b11110;
+		rs1	==5'b00000;
+		inm12_4  ==12'd36;
+		}
+        
+       // sll r5, r30, r6 
+       else if (index == 97) {
+		opcode == 7'b0110011;
+		funct3 ==3'b001;
+		rd 	== 5'b00101;
+		rs1	==5'b11110;
+        rs2 == 5'b00110;
+        funct7 == 7'b0000000;  
+		} 
+               
+       // lui r5, 10
+       else if (index == 98) {
+		opcode == 7'b0110111;
+		rd 	== 5'b00101;
+		inm_20_4  ==20'b00000000000000001100;
+		}               
+                 
+         //lb r5, 34(0)
+       else if (index == 99) {
+		opcode == 7'b0000011;
+		rd 	== 5'b00101;
+        funct3_lw == 3'b000;
+        rs1 == 5'b00000;
+		inm12  ==12'd36;
+		}
+          
+   }
   // Construcción de la instrucción      
   constraint inst {
     

@@ -8,4 +8,4 @@
 `include "../testbench/agent.sv"
 `include "../testbench/env.sv"
 `include "../testbench/test_1.sv"
-
+`include "../testbench/test_load_type.sv"
