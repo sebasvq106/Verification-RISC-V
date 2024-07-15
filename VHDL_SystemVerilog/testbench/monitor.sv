@@ -75,7 +75,7 @@ class riscv_monitor_wr extends riscv_monitor;
       @(posedge intf.tb_clk);  
           // guarda la intruccion y la almacena en instruction_send
          data_obj.instruction_send = intf.instruction_queue;
-      
+         data_obj.reset = intf.reset;
       
           // escribe en el puerto mon_analysis_port el data_obj
           // este puerto se conecta al scoreboard
