@@ -1,6 +1,6 @@
 =N:[UVMSource] Using sources from '/home/sebasvq/metrics-ca/dsim/20240422.0.0/uvm/1.2'
-=N:[UsageMeter (2024-07-15 01:55:53 -0600)] Using /etc/ssl/certs as location of CA certificates to verify license server.
-=N:[UsageMeter (2024-07-15 01:55:53 -0600)] usage server initial connection
+=N:[UsageMeter (2024-07-15 02:06:32 -0600)] Using /etc/ssl/certs as location of CA certificates to verify license server.
+=N:[UsageMeter (2024-07-15 02:06:32 -0600)] usage server initial connection
 =N:[License] 
 Licensed for Metrics Design Automation.
 =N:[License] New lease granted.
@@ -33,10 +33,10 @@ Elaborating...
     Included from ../testbench/testbench.sv:4:10            
 
     ../testbench/test_1.sv:47:3                      int    
-    Included from ../testbench/testbench.sv:11:10           
+    Included from ../testbench/testbench.sv:12:10           
 
     ../testbench/test_reset.sv:37:5                  int    
-    Included from ../testbench/testbench.sv:17:10           
+    Included from ../testbench/testbench.sv:18:10           
 
 =W:[DuplicateCaseItem]:
     The following case items appear more than once in             
@@ -88,7 +88,10 @@ Optimizing...
 Building models...
 PLI/VPI access: +rwb 
 Simulation time precision is 1ps.
-  [3/9] CU scope $unit: 174 functions, 3295 basic blocks
+  [3/9] CU scope $unit: 194 functions, 3499 basic blocks
+  [4/9] module top_hvl: 2 functions, 6 basic blocks
+  [5/9] module top_hdl: 7 functions, 22 basic blocks
+  [7/9] package uvm_pkg: 6 submodules, 3944 functions, 43014 basic blocks
 Linking image.so...
 Using default typical min/typ/max.
 =S:Begin run-time elaboration and static initialization...

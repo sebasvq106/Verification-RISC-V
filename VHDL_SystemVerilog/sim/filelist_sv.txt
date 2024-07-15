@@ -7,6 +7,7 @@ $HOME/metrics-ca/dsim/20240422.0.0/uvm/1.2/src/uvm_pkg.sv
 ../testbench/driver.sv
 ../testbench/env.sv
 ../testbench/interface.sv
+../testbench/coverage.sv
 ../testbench/monitor.sv
 ../testbench/riscv_item.sv
 ../testbench/assertions.sv
