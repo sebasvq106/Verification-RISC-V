@@ -16,3 +16,4 @@ $HOME/metrics-ca/dsim/20240422.0.0/uvm/1.2/src/uvm_pkg.sv
 ../testbench/test_store_type.sv
 ../testbench/test_lui_type.sv
 ../testbench/test_i_type.sv
+../testbench/test_r_type.sv

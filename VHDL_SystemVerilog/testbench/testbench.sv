@@ -12,3 +12,4 @@
 `include "../testbench/test_store_type.sv"
 `include "../testbench/test_lui_type.sv"
 `include "../testbench/test_i_type.sv"
+`include "../testbench/test_r_type.sv"
