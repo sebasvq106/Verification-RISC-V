@@ -55,6 +55,16 @@ class riscv_scoreboard extends uvm_scoreboard;
   virtual function void write_drv (riscv_item item);
     //`uvm_info ("drv", $sformatf("Data received = %h ", item.instruction_send), UVM_MEDIUM);
     instruction_ref.push_front(item.instruction_send);
+    if (item.reset) begin
+      instruction_ref.delete(); 
+
+      for (int i = 0; i < 32; i++) begin
+            reg_ref[i] = 32'h00000000;
+      end
+      for (int i = 0; i < 5000; i++) begin
+          mem_ref[i] = 32'hAAAAAAAA;
+      end
+    end
 	endfunction
   
   // Para comparar.

@@ -13,3 +13,4 @@
 `include "../testbench/test_lui_type.sv"
 `include "../testbench/test_i_type.sv"
 `include "../testbench/test_r_type.sv"
+`include "../testbench/test_reset.sv"
