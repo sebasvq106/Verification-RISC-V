@@ -12,3 +12,12 @@ $HOME/metrics-ca/dsim/20240422.4.0/uvm/1.2/src/uvm_pkg.sv
 ../testbench/scoreboard.sv
 ../testbench/sequence.sv
 ../testbench/test_1.sv
+../testbench/coverage.sv
+../testbench/assertions.sv
+../testbench/test_1.sv
+../testbench/test_r_type.sv
+../testbench/test_i_type.sv
+../testbench/test_load_type.sv
+../testbench/test_store_type.sv
+../testbench/test_lui_type.sv
+../testbench/test_reset.sv

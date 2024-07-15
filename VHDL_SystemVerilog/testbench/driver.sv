@@ -7,6 +7,8 @@ class riscv_driver extends uvm_driver #(riscv_item);
 // Agrega a la Fabrica
 `uvm_component_utils (riscv_driver)
 
+int i;
+
 
 // Constructor
  function new (string name = "fifo_driver", uvm_component parent = null);
@@ -51,12 +53,11 @@ class riscv_driver extends uvm_driver #(riscv_item);
        seq_item_port.get_next_item(f_item);
        fork
            // si index es menor a 7, manda intrucciones del tipo ADDI
-         if (f_item.index < 30) begin
-            `uvm_info("DRV", $sformatf("Instruccion nuemero = %d", f_item.index), UVM_MEDIUM);
-              register(f_item);
-          end else begin
-              instruction(f_item);
-          end
+         if (f_item.index < 30) begin 
+           register(f_item);
+         end else begin
+            instruction(f_item);
+         end
       join
          // Terminado
          seq_item_port.item_done();
@@ -103,10 +104,11 @@ virtual task instruction(riscv_item f_item);
     `uvm_info("DRV", $sformatf("Envio instruciones"), UVM_LOW)
     @ ( posedge intf.tb_clk);  
     top_hdl.riscV.dp.instr_mem.Inst_mem[f_item.index] = f_item.rand_instruction;
-    intf.instruction_queue = f_item.rand_instruction;  
+    intf.instruction_queue = f_item.rand_instruction;
+      i = f_item.index;
     end
 endtask
-            
+         
 
 endclass
 `endif // 

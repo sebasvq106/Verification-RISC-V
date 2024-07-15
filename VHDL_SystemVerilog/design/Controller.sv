@@ -59,8 +59,8 @@ module Controller(
   assign Con_Jalr = (Opcode == JALR);  
   assign Branch = (Opcode == BR);  
   assign ALUSrc   = (Opcode==LW || Opcode==SW || Opcode == RTypeI);
-  assign MemtoReg = (Opcode==LW);
-  assign RegtoMem = (Opcode==SW);
+  assign MemtoReg = (Opcode==LW); 
+  assign RegtoMem = (Opcode==SW); 
   assign RegWrite = (Opcode==R_TYPE || Opcode==LW || Opcode == RTypeI || Opcode == JALR || Opcode == JAL || Opcode == LUI);
   assign Mem = (Opcode==LW||Opcode==SW);
   assign MemRead  = (Opcode==LW);

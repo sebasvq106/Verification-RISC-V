@@ -8,18 +8,18 @@ module datamemory#(
     input logic rst,
 	input logic MemRead , // comes from control unit
     input logic MemWrite , // Comes from control unit
-    input logic [ DM_ADDRESS -1:0] a , // Read / Write address - 9 LSB bits of the ALU output
-    input logic [ DATA_W -1:0] wd , // Write Data
-    output logic [ DATA_W -1:0] rd // Read Data
+    input logic [ 32:0] a , // Read / Write address - 9 LSB bits of the ALU output
+    input logic [ 32 -1:0] wd , // Write Data
+    output logic [ 32 -1:0] rd // Read Data
     );
     
-    logic [DATA_W-1:0] mem[4197:0];
+    logic [32-1:0] mem[4197:0];
     
-    always @(negedge clk) begin
+  /*  always @(negedge clk) begin
         if(rst==1'b1)
         for (int i = 0; i < 4195; i = i + 1)
           mem[i] <= 32'hAAAAAAAA;
-    end
+    end*/
     
     always_comb 
     begin

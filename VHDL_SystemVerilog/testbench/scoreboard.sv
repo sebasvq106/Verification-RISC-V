@@ -50,11 +50,20 @@ class riscv_scoreboard extends uvm_scoreboard;
         mem_ref[i] = 32'hAAAAAAAA;
         end
 	endfunction
-
+  
   // para recibir la instruccion del driver o agente passivo
   virtual function void write_drv (riscv_item item);
     //`uvm_info ("drv", $sformatf("Data received = %h ", item.instruction_send), UVM_MEDIUM);
     instruction_ref.push_front(item.instruction_send);
+    if (item.reset) begin
+      instruction_ref.delete(); 
+      for (int i = 0; i < 32; i++) begin
+            reg_ref[i] = 32'h00000000;
+       end
+      for (int i = 0; i < 5000; i++) begin
+        mem_ref[i] = 32'hAAAAAAAA;
+        end
+    end
 	endfunction
   
   // Para comparar.
@@ -69,7 +78,7 @@ class riscv_scoreboard extends uvm_scoreboard;
 
 	
           	//R-type
-          	if (opcode == 7'b0110011 )begin
+           	if (opcode == 7'b0110011 )begin
                 rd = instruction[11:7];
                 rs1 = instruction[19:15];
                 rs2 = instruction[24:20];
@@ -254,7 +263,7 @@ class riscv_scoreboard extends uvm_scoreboard;
                 mem_ref[sw_aux] = y;
               end
             end
-    		// Lui
+    	 	// Lui
     		else if(opcode == 7'b0110111) begin
                	rd = instruction[11:7];
               	inm_lui = instruction[31:12];
@@ -294,7 +303,11 @@ class riscv_scoreboard extends uvm_scoreboard;
 
           if (error_found == 0) begin 
               `uvm_info("SB PASS Mem", "Memory matches!", UVM_MEDIUM);
-            `uvm_info("Info pass", $sformatf("DUT data is %b :: SB data is %b", top_hdl.riscV.dp.data_mem.mem[lw_aux], mem_ref[lw_aux]), UVM_MEDIUM);
+            if (opcode == 7'b0100011) begin
+            	`uvm_info("Info pass", $sformatf("DUT data is %b :: SB data is %b", top_hdl.riscV.dp.data_mem.mem[sw_aux], mem_ref[sw_aux]), UVM_MEDIUM);
+            end else begin
+              `uvm_info("Info pass", $sformatf("DUT data is %b :: SB data is %b", top_hdl.riscV.dp.data_mem.mem[lw_aux], mem_ref[lw_aux]), UVM_MEDIUM);
+            end
           end
       end
 
