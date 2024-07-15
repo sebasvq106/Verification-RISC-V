@@ -9,6 +9,7 @@ $HOME/metrics-ca/dsim/20240422.0.0/uvm/1.2/src/uvm_pkg.sv
 ../testbench/interface.sv
 ../testbench/monitor.sv
 ../testbench/riscv_item.sv
+../testbench/assertions.sv
 ../testbench/scoreboard.sv
 ../testbench/sequence.sv
 ../testbench/test_1.sv

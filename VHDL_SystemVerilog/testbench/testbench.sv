@@ -5,6 +5,7 @@
 `include "../testbench/driver.sv"
 `include "../testbench/monitor.sv"
 `include "../testbench/scoreboard.sv"
+`include "../testbench/assertions.sv"
 `include "../testbench/agent.sv"
 `include "../testbench/env.sv"
 `include "../testbench/test_1.sv"
