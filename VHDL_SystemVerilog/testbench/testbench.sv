@@ -9,3 +9,4 @@
 `include "../testbench/env.sv"
 `include "../testbench/test_1.sv"
 `include "../testbench/test_load_type.sv"
+`include "../testbench/test_store_type.sv"
